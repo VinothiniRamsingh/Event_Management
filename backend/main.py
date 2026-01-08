@@ -26,39 +26,6 @@ def get_db():
     finally:
         db.close()
 
-#  CREATE 
-# @app.post("/events")
-# def create_event(
-#     booking_id: int,
-#     user_name: str,
-#     city: str,
-#     phone: str,
-#     event_type: str,
-#     event_date: date,
-#     location: str,
-#     budget: int,
-#     db: Session = Depends(get_db)
-# ):
-#     existing = db.query(EventInfo).filter(EventInfo.booking_id == booking_id).first()
-#     if existing:
-#         raise HTTPException(status_code=400, detail="Booking ID already exists")
-
-#     event = EventInfo(
-#         booking_id=booking_id,
-#         user_name=user_name,
-#         city=city,
-#         phone=phone,
-#         event_type=event_type,
-#         event_date=event_date,
-#         location=location,
-#         budget=budget
-#     )
-#     db.add(event)
-#     db.commit()
-#     return {"message": "Event created successfully"}
-
-
-
 @app.post("/events")
 def create_event(event: EventCreate, db: Session = Depends(get_db)):
     # use event.user_name, event.city, etc.
@@ -66,31 +33,6 @@ def create_event(event: EventCreate, db: Session = Depends(get_db)):
     db.add(db_event)
     db.commit()
     return {"message": "Event created successfully"}
-
-# @app.post("/events")
-# def create_event(
-#     user_name: str,
-#     city: str,
-#     phone: str,
-#     event_type: str,
-#     event_date: date,
-#     location: str,
-#     budget: int,
-#     db: Session = Depends(get_db)
-# ):
-    
-#     event = EventInfo(
-#         user_name=user_name,
-#         city=city,
-#         phone=phone,
-#         event_type=event_type,
-#         event_date=event_date,
-#         location=location,
-#         budget=budget
-#     )
-#     db.add(event)
-#     db.commit()
-#     return {"message": "Event created successfully"}
 
 #  READ ALL 
 @app.get("/events")
