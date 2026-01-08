@@ -1,0 +1,66 @@
+/* Background & body */
+body {
+    font-family: 'Arial', sans-serif;
+    /* background: url("bg.jpg") no-repeat center center fixed; */
+    padding: 20px;
+    color: #f8f1e4; 
+}
+
+/* Page Title */
+h1 {
+    text-align: center;
+    color: #f1c40f; 
+    text-shadow: 2px 2px 4px #000; 
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(0,0,0,0.8); 
+    margin-top: 20px;
+    color: #f8f1e4; 
+}
+
+/* Table headers */
+th, td {
+    border: 1px solid #f1c40f; 
+    padding: 10px;
+    text-align: center;
+}
+
+/* Header row */
+th {
+    background-color: #000; 
+    color: #f1c40f; 
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Table rows */
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05); 
+}
+
+tr:hover {
+    background-color: rgba(241, 196, 15, 0.314); 
+    color: white; 
+}
+
+/* Subtle shadow for table */
+table {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+    table, th, td {
+        font-size: 0.85rem;
+    }
+}
+
+
+
+
