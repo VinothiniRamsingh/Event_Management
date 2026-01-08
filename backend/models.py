@@ -7,7 +7,7 @@ from sqlalchemy import Column, Integer, String, Date
 from database import Base
 
 class EventInfo(Base):
-    __tablename__ = "events_info"  # make sure this matches your table name in MySQL
+    __tablename__ = "events_info" 
 
     booking_id = Column(Integer, primary_key=True, autoincrement=True)
     user_name  = Column(String(100), nullable=False)
