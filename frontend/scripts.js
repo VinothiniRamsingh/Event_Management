@@ -1,6 +1,6 @@
 const API_URL = "http://127.0.0.1:8000/events";
 
-// ---------------- LOAD BOOKINGS ----------------
+//  LOAD BOOKINGS 
 function loadBookings() {
     const tbody = document.getElementById("booking-body");
     tbody.innerHTML = "";
@@ -16,7 +16,7 @@ function loadBookings() {
         .catch(err => console.error("Load error:", err));
 }
 
-// ---------------- READ ONLY ROW ----------------
+//  READ ONLY ROW 
 function createReadOnlyRow(item) {
     const row = document.createElement("tr");
 
@@ -36,7 +36,7 @@ function createReadOnlyRow(item) {
     return row;
 }
 
-// ---------------- ADD NEW ROW ----------------
+//  ADD NEW ROW 
 function addNewBookingRow() {
     const tbody = document.getElementById("booking-body");
     const row = document.createElement("tr");
@@ -59,7 +59,7 @@ function addNewBookingRow() {
     tbody.appendChild(row);
 }
 
-// ---------------- SAVE NEW BOOKING ----------------
+//  SAVE NEW BOOKING 
 function saveBooking(row) {
     const user_name  = row.querySelector(".user_name").value.trim();
     const city       = row.querySelector(".city").value.trim();
@@ -75,7 +75,7 @@ function saveBooking(row) {
         return;
     }
 
-    const budget = budgetVal ? Number(budgetVal) : 0; // default 0 if empty
+    const budget = budgetVal ? Number(budgetVal) : 0; 
 
     // Build request body
     const data = {
@@ -88,7 +88,7 @@ function saveBooking(row) {
         budget
     };
 
-    console.log("Saving booking:", data); // <-- debug
+    console.log("Saving booking:", data); 
 
     fetch(API_URL, {
         method: "POST",
@@ -113,7 +113,7 @@ function saveBooking(row) {
     });
 }
 
-// ---------------- DELETE BOOKING ----------------
+//  DELETE BOOKING 
 function deleteBooking(id, row) {
     if (!id) {
         row.remove(); // unsaved row
@@ -131,7 +131,7 @@ function deleteBooking(id, row) {
         });
 }
 
-// ---------------- EVENT LISTENERS ----------------
+//  EVENT LISTENERS 
 document.addEventListener("DOMContentLoaded", () => {
     loadBookings();
 
@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (e.target.classList.contains("deleteBtn")) {
-            const id = e.target.dataset.id; // undefined for new row
+            const id = e.target.dataset.id;
             deleteBooking(id, row);
         }
     };
